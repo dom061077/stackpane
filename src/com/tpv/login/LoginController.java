@@ -23,10 +23,10 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
+import javafx8tpv1.TabPanePrincipalController;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import org.apache.log4j.Logger;
-import org.datafx.controller.FXMLController;
 import org.datafx.controller.flow.action.ActionTrigger;
 
 /**
@@ -34,8 +34,11 @@ import org.datafx.controller.flow.action.ActionTrigger;
  * @author daniel
  */
 
-@FXMLController(value="Login.fxml", title = "Ingreso al Sistema")
+//@FXMLController(value="Login.fxml", title = "Ingreso al Sistema")
 public class LoginController {
+    
+    private TabPanePrincipalController tabController;
+    
     Logger log = Logger.getLogger(LoginController.class);
     UsuarioService usuarioService = new UsuarioService();    
     @FXML
@@ -77,6 +80,42 @@ public class LoginController {
     @PostConstruct
     public void init(){
         loadImage();
+            password.setOnKeyPressed(keyEvent->{
+                log.debug("INGRESEANDO POR PRESIONAR TECLA ENTER");
+                /*if(keyEvent == KeyCode.ENTER){
+                    
+                    Usuario usuario = null;
+                    try{
+                        usuario = usuarioService.authenticar(userName.getText(), password.getText());
+                    }catch(TpvException e){
+                        log.error("Error: "+e.getMessage());
+                        modelTicket.setOrigenPantalla(OrigenPantallaErrorEnum.PANTALLA_LOGIN);
+                        modelTicket.setException(e);
+                        goToErrorButton.fire();
+                    }                        
+                    if(usuario!=null){
+                        modelTicket.setUsuario(usuario);
+                        this.tabController.getButtonMenuPrincipal().fire();
+                        //buttonLogin.fire();
+                    }else{
+                        labelError.setText("Usuario o contraseña incorrectos");
+                        
+                        stackPaneError.setVisible(true);
+                        labelError.requestFocus();
+                        
+                    }
+                    
+                }
+                if(keyEvent.getCode() == KeyCode.ESCAPE){
+                    userName.requestFocus();
+                }
+                if(keyEvent.getCode() == KeyCode.F11){
+                    System.exit(0);
+                }*/
+                
+            });
+        
+        
         Platform.runLater(() -> {
             Checkout checkout = null;
             try{
@@ -127,37 +166,6 @@ public class LoginController {
                 }
             });
             
-            password.setOnKeyPressed(keyEvent->{
-                if(keyEvent.getCode() == KeyCode.ENTER){
-                    Usuario usuario = null;
-                    try{
-                        usuario = usuarioService.authenticar(userName.getText(), password.getText());
-                    }catch(TpvException e){
-                        log.error("Error: "+e.getMessage());
-                        modelTicket.setOrigenPantalla(OrigenPantallaErrorEnum.PANTALLA_LOGIN);
-                        modelTicket.setException(e);
-                        goToErrorButton.fire();
-                    }                        
-                    if(usuario!=null){
-                        modelTicket.setUsuario(usuario);
-                        buttonLogin.fire();
-                    }else{
-                        labelError.setText("Usuario o contraseña incorrectos");
-                        
-                        stackPaneError.setVisible(true);
-                        labelError.requestFocus();
-                        
-                    }
-                    
-                }
-                if(keyEvent.getCode() == KeyCode.ESCAPE){
-                    userName.requestFocus();
-                }
-                if(keyEvent.getCode() == KeyCode.F11){
-                    System.exit(0);
-                }
-                
-            });
             
                     
         });
@@ -169,6 +177,10 @@ public class LoginController {
         imageViewLogoRight.setImage(new Image(f));
         imageViewLogoLeft.setImage(new Image(f));
     }
+    
+    public void setTabController(TabPanePrincipalController tabController){
+        this.tabController=tabController;
+    }    
             
     
 }

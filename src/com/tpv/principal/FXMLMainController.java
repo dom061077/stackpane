@@ -50,6 +50,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.util.Callback;
 import javafx.util.Duration;
+import javafx8tpv1.TabPanePrincipalController;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import org.apache.log4j.Logger;
@@ -64,8 +65,10 @@ import org.tpv.print.fiscal.hasar.HasarCommands;
  * 
  * @author daniel
  */
-@FXMLController(value="FXMLMain.fxml", title = "Edit user")
+//@FXMLController(value="FXMLMain.fxml", title = "Edit user")
 public class FXMLMainController implements Initializable {
+    private TabPanePrincipalController tabController;
+    
     private final static String LABEL_CANTIDAD="Cantidad:";
     private final static String LABEL_CANTIDAD_INGRESADA="(Cantidad->";
     private final static String TITULO_INGRESO_CLIENTE="Ingreso de Cliente";
@@ -1035,6 +1038,10 @@ public class FXMLMainController implements Initializable {
             goToErrorButton.fire();
         }*/
     }
+    
+    public void setTabController(TabPanePrincipalController tabController){
+        this.tabController=tabController;
+    }    
     
     
     
