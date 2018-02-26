@@ -173,6 +173,7 @@
                               <Label fx:id="labelCliente" prefHeight="17.0" prefWidth="179.0" styleClass="label_textfield" text="Cliente:" GridPane.rowIndex="1" />
                               <Label fx:id="labelCantidad" prefHeight="17.0" prefWidth="256.0" styleClass="label_textfield" text="Cantidad:" visible="false" GridPane.rowIndex="1" />
                               <Label fx:id="labelSubTituloIngresos" prefHeight="17.0" prefWidth="503.0" styleClass="label_sub_titulo" text="Label" GridPane.columnSpan="2" />
+                              <TextField fx:id="textFieldCodCliente" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                            </children>
                         </GridPane>
                      </children>

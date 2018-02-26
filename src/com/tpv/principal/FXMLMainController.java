@@ -40,6 +40,7 @@ import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -86,7 +87,9 @@ public class FXMLMainController implements Initializable {
     
     private MaskTextField textFieldProducto;
     private MaskTextField textFieldCantidad;
-    private MaskTextField textFieldCodCliente;
+    
+    @FXML
+    private TextField textFieldCodCliente;
     
     private FadeTransition fadeInOut;
     private LineaTicketData lineaTicketData;
@@ -201,8 +204,8 @@ public class FXMLMainController implements Initializable {
     @FXML
     private Label labelTotalGral;
     
-    @Inject
-    private DataModelTicket modelTicket;
+    //@Inject
+    //private DataModelTicket modelTicket;
 
     
     @Override
@@ -221,22 +224,22 @@ public class FXMLMainController implements Initializable {
         labelCantidad.setText(LABEL_CANTIDAD);
         iniciaIngresosVisibles();
         
-        if(modelTicket.getCodigoProdSelecEnBuscarPorDesc()>0){
+        /*if(modelTicket.getCodigoProdSelecEnBuscarPorDesc()>0){
             textFieldProducto.setText(modelTicket.getCodigoProdSelecEnBuscarPorDesc()+"");
             modelTicket.setCodigoProdSelecEnBuscarPorDesc(0);
         }
         if(modelTicket.getCodigoClienteSelecEnBuscarPorDesc()>0){
             textFieldCodCliente.setText(""+modelTicket.getCodigoClienteSelecEnBuscarPorDesc());
             modelTicket.setCodigoClienteSelecEnBuscarPorDesc(0);
-        }
+        }*/
         
         initTableViewTickets();        
         
         
         Platform.runLater(() -> {
             chequearInterfazNegativo();            
-            traerInfoImpresora();
-            tableViewTickets.setItems(modelTicket.getDetalle());
+            //traerInfoImpresora();
+            //tableViewTickets.setItems(modelTicket.getDetalle());
             calcularTotalGeneral();
             scrollDown();
             
@@ -257,7 +260,7 @@ public class FXMLMainController implements Initializable {
                         textFieldProducto.setVisible(true);
 
 
-                        modelTicket.setClienteSeleccionado(true);
+                        //modelTicket.setClienteSeleccionado(true);
                     }else{
                         traerCliente();
                     } 
@@ -268,7 +271,7 @@ public class FXMLMainController implements Initializable {
                 }
             });
             
-            textFieldCantidad.setOnKeyPressed(keyEvent ->{
+            /*textFieldCantidad.setOnKeyPressed(keyEvent ->{
                 if(keyEvent.getCode() == KeyCode.ENTER ||
                         keyEvent.getCode() == KeyCode.ESCAPE){
                     if(keyEvent.getCode() == KeyCode.ENTER){
@@ -285,10 +288,10 @@ public class FXMLMainController implements Initializable {
                     }
                     
                 }
-            });
+            });*/
             
             
-            textFieldProducto.requestFocus();
+            /*textFieldProducto.requestFocus();
             textFieldProducto.setOnKeyPressed(keyEvent -> {
                 if(keyEvent.getCode() == KeyCode.ESCAPE){
                     if(modelTicket.getDetalle().size()==0){
@@ -306,10 +309,6 @@ public class FXMLMainController implements Initializable {
                     buscarProductoButton.fire();
                     keyEvent.consume();
                 }
-                /*if(keyEvent.getCode() == KeyCode.F4){
-                    pagoTicketButton.fire();
-                    keyEvent.consume();
-                }*/
                 if(keyEvent.getCode() == KeyCode.ENTER){
                     
                     if(textFieldCantidad.isVisible()){
@@ -395,7 +394,7 @@ public class FXMLMainController implements Initializable {
                 }
                     
                 
-            });
+            });*/
             if(clienteButton.getScene()!=null){
                 clienteButton.getScene().setOnKeyPressed(keyEvent -> {
                     if(keyEvent.getCode() == KeyCode.F2){
@@ -446,7 +445,7 @@ public class FXMLMainController implements Initializable {
     }
     private void calcularTotalGeneral(){
         DecimalFormat df = new DecimalFormat("##,##0.00");
-        totalGeneral.setText(df.format(modelTicket.getTotalTicket()));
+        //totalGeneral.setText(df.format(modelTicket.getTotalTicket()));
     }
     
     private void scrollDown(){
@@ -457,7 +456,7 @@ public class FXMLMainController implements Initializable {
     }
     
     private void enviarComandoLineaTicket(){
-        int codigoIngresado=0;
+        /*int codigoIngresado=0;
         BigDecimal cantidad = new BigDecimal(1);
         String descripcion="";
         Producto producto = null;
@@ -525,10 +524,11 @@ public class FXMLMainController implements Initializable {
         //,BigDecimal precio, BigDecimal iva,BigDecimal impuestoInterno) 
         calcularTotalGeneral();
         textFieldCantidad.setText("");
+        */
     }
     
     public void iniciaIngresosVisibles(){
-        textFieldProducto = new MaskTextField();
+        /*textFieldProducto = new MaskTextField();
         textFieldProducto.setMask("N!");
         textFieldProducto.setVisible(false);
         textFieldProducto.getStyleClass().add("textfield_sin_border");
@@ -548,13 +548,11 @@ public class FXMLMainController implements Initializable {
         
         labelCantidadIngresada.setVisible(false);
         
-//        gridPaneCodigoProducto.add(textFieldCodCliente,1,1);
         gridPaneCodigoProducto.add(textFieldProducto,1,1);
-//        gridPaneCodigoProducto.add(textFieldCantidad,1,3);
         gridPaneIngresos.add(textFieldCodCliente,1,1);
         gridPaneIngresos.add(textFieldCantidad,1,1);
-        
-        if(modelTicket.isClienteSeleccionado()){
+        */
+        /*if(modelTicket.isClienteSeleccionado()){
             labelProducto.setVisible(true);
             textFieldProducto.setVisible(true);
             labelCliente.setVisible(false);
@@ -568,14 +566,14 @@ public class FXMLMainController implements Initializable {
             labelSubTituloIngresos.setText(TITULO_INGRESO_CLIENTE);
             stackPaneIngresos.setVisible(true);
             textFieldCodCliente.requestFocus();
-            textFieldProducto.setVisible(false);
+            //textFieldProducto.setVisible(false);
             labelProducto.setVisible(false);
         }
-                
+          */      
     }
 
     public void traerCliente(){
-        
+        /*
         try{
             Cliente cliente = clienteService.getClientePorCodYDni(Integer.parseInt(textFieldCodCliente.getText()));
             if(cliente!=null){
@@ -595,12 +593,12 @@ public class FXMLMainController implements Initializable {
                 modelTicket.setException(e);
                 goToErrorButton.fire();
         }
-            
+            */
 
     }
     
     public void traerInfoImpresora(){
-        if(modelTicket.getNroTicket()==0){
+        /*if(modelTicket.getNroTicket()==0){
             try{
 
                 String retorno[] = impresoraService.getPtoVtaNrosTicket();
@@ -620,7 +618,7 @@ public class FXMLMainController implements Initializable {
                 //+" Nro. Ticket (A): "+retorno[2]
         );
         checkout.setText("Checkout: "+modelTicket.getCheckout().getId());
-        
+        */
 //            Worker<String> worker = new Task<String>(){
 //                @Override
 //                protected String call() throws Exception{
@@ -658,7 +656,7 @@ public class FXMLMainController implements Initializable {
     
     private void chequearInterfazNegativo(){
         //ingresoNegativoHabilitado.setVisible(modelTicket.isImprimeComoNegativo());
-        ingresoNegativoPane.setVisible(modelTicket.isImprimeComoNegativo());
+        //ingresoNegativoPane.setVisible(modelTicket.isImprimeComoNegativo());
 //        if(modelTicket.isImprimeComoNegativo()){
 //            labelProducto.getStyleClass().clear();
 //            labelProducto.getStyleClass().add("label_textfield_negativo");
@@ -737,7 +735,7 @@ public class FXMLMainController implements Initializable {
     }
     
     private void guardarFacturaPrimeraVez(){
-        log.debug("Guardar Factura Primera Vez:");
+        /*log.debug("Guardar Factura Primera Vez:");
         Factura factura = new Factura();
         factura.setTotal(modelTicket.getTotalTicket());
         factura.setEstado(FacturaEstadoEnum.ABIERTA);
@@ -782,16 +780,17 @@ public class FXMLMainController implements Initializable {
         }
         modelTicket.setIdFactura(facturaGuardada.getId());
         log.debug("ID de factura: "+facturaGuardada.getId());
+        */
     }  
     
     private void agregarDetalleFactura(){
-        modelTicket.getDetalle().add(lineaTicketData);                    
+        //modelTicket.getDetalle().add(lineaTicketData);                    
 //        if(modelTicket.getDetalle()d.size()>1){
 //            agregarDetalleFactura(lineaTicketData);
 //
 //        }
         
-        FacturaDetalle facturaDetalle = new FacturaDetalle();
+        /*FacturaDetalle facturaDetalle = new FacturaDetalle();
         facturaDetalle.setCantidad(lineaTicketData.getCantidad());
         facturaDetalle.setDescuento(BigDecimal.ZERO);
         facturaDetalle.setImpuestoInterno(BigDecimal.ZERO);
@@ -809,6 +808,7 @@ public class FXMLMainController implements Initializable {
             modelTicket.setException(e);
             goToErrorButton.fire();
         }
+        */
     }
     
     
@@ -959,7 +959,7 @@ public class FXMLMainController implements Initializable {
     }
             
     private void verificarTicketAbierto(){
-        log.info("Verificando ticket abierto");
+        /*log.info("Verificando ticket abierto");
         Factura factura = null;
         try{
             factura = factService.getFacturaAbiertaPorCheckout(modelTicket.getCheckout().getId());
@@ -972,11 +972,11 @@ public class FXMLMainController implements Initializable {
             modelTicket.setOrigenPantalla(OrigenPantallaErrorEnum.PANTALLA_FACTURACION);
             modelTicket.setException(e);
             goToErrorButton.fire();
-        }
+        }*/
     }       
     
     private void verificarDetalleTableView(){
-        log.info("Verificando detalle de TableView");
+        /*log.info("Verificando detalle de TableView");
         if(modelTicket.isReinicioVerificado()){
             return;
         }
@@ -1007,11 +1007,12 @@ public class FXMLMainController implements Initializable {
             modelTicket.setException(e);
             goToErrorButton.fire();
         }
-        modelTicket.setReinicioVerificado(true);        
+        modelTicket.setReinicioVerificado(true); 
+        */
     }
     
     private void verCombos(){
-        ObservableList<FacturaDetalleComboData> combosItems = FXCollections.observableArrayList();
+       /* ObservableList<FacturaDetalleComboData> combosItems = FXCollections.observableArrayList();
         ListProperty<FacturaDetalleComboData> listCombos = new SimpleListProperty<>(combosItems);
         
         try{
@@ -1032,7 +1033,7 @@ public class FXMLMainController implements Initializable {
             modelTicket.setOrigenPantalla(OrigenPantallaErrorEnum.PANTALLA_FACTURACION);
             modelTicket.setException(e);
             goToErrorButton.fire();
-        }
+        }*/
     }
     
     

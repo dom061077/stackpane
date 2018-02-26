@@ -62,14 +62,14 @@ public class MenuPrincipalController {
         log.info("Ingresando al menú principal");
         loadImage();
         Platform.runLater(()->{
-            try{
+            /*try{
                 Connection.initFiscalPrinter();
             }catch(TpvException e){
                 log.error(e.getMessage());
                 modelTicket.setException(e);
                 modelTicket.setOrigenPantalla(OrigenPantallaErrorEnum.PANTALLA_MENUPRINCIPAL);
                 buttonError.fire();
-            }
+            }*/
             
             vboxMenuPrincipal.setOnKeyPressed(keyEvent->{
                 log.debug("Tecla pulsada: "+keyEvent.getCode());

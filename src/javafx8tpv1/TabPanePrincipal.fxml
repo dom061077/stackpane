@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane prefHeight="400.0" prefWidth="600.0">
+         <center>
+            <TabPane prefHeight="378.0" prefWidth="553.0" side="BOTTOM" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+              <tabs>
+                <Tab text="Login">
+                     <content>
+                        <fx:include source="../com/tpv/login/Login.fxml" />
+                     </content>
+                     <graphic>
+                        <StackPane prefHeight="150.0" prefWidth="200.0" />
+                     </graphic>
+                  </Tab>
+                  <Tab text="Facturación">
+                     <content>
+                        <fx:include source="../com/tpv/principal/FXMLMain.fxml" />
+                     </content>
+                  </Tab>
+                <Tab text="Menu Principal">
+                     <content>
+                        <BorderPane>
+                           <center>
+                              <VBox fx:id="vboxMenuPrincipal" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="433.0" prefWidth="719.0" styleClass="label_menu, rounded_corner">
+                                 <children>
+                                    <Label styleClass="label_menu" text="1- FACTURACION" textFill="#3062e1">
+                                       <font>
+                                          <Font name="Arial" size="64.0" />
+                                       </font>
+                                    </Label>
+                                    <Label styleClass="label_menu" text="2- CONTROLADOR" textFill="#3062e1">
+                                       <font>
+                                          <Font name="Arial" size="64.0" />
+                                       </font>
+                                    </Label>
+                                    <Label styleClass="label_menu" text="3- RETIRO DE DINERO" textFill="#3062e1">
+                                       <font>
+                                          <Font name="Arial" size="64.0" />
+                                       </font>
+                                    </Label>
+                                    <Label styleClass="label_menu" text="4- FIN" textFill="#3062e1">
+                                       <font>
+                                          <Font size="64.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="buttonFacturacion" mnemonicParsing="false" text="Facturación" />
+                                    <Button fx:id="buttonControlador" mnemonicParsing="false" text="Button" visible="false" />
+                                    <Button fx:id="buttonRetirarDinero" mnemonicParsing="false" text="Button" visible="false" />
+                                    <Button fx:id="buttonError" focusTraversable="false" mnemonicParsing="false" visible="false" />
+                                 </children>
+                              </VBox>
+                           </center>
+                           <left>
+                              <ImageView fx:id="imageViewLogoRight" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER_RIGHT" />
+                           </left>
+                           <right>
+                              <ImageView fx:id="imageViewLogoLeft" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER_LEFT" />
+                           </right>
+                        </BorderPane>
+                     </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+         </center>
+         <bottom>
+            <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button mnemonicParsing="false" text="Ir a Menu Principal" />
+                  <Button mnemonicParsing="false" text="Ir a Facturacion" />
+               </children>
+            </HBox>
+         </bottom>
+      </BorderPane>
+   </children>
+</AnchorPane>

@@ -6,8 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<BorderPane xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <VBox fx:id="vboxMenuPrincipal" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="433.0" prefWidth="719.0" styleClass="label_menu, rounded_corner">
          <children>
@@ -31,7 +30,7 @@
                   <Font size="64.0" />
                </font>
             </Label>
-            <Button fx:id="buttonFacturacion" mnemonicParsing="false" text="Button" visible="false" />
+            <Button fx:id="buttonFacturacion" mnemonicParsing="false" text="Facturación" />
             <Button fx:id="buttonControlador" mnemonicParsing="false" text="Button" visible="false" />
             <Button fx:id="buttonRetirarDinero" mnemonicParsing="false" text="Button" visible="false" />
             <Button fx:id="buttonError" focusTraversable="false" mnemonicParsing="false" visible="false" />
