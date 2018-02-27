@@ -82,6 +82,7 @@ public class JavaFX8TPV1 extends Application {
         
         //stage.show();
         Parent root = FXMLLoader.load(getClass().getResource("TabPanePrincipal.fxml"));
+        root.setFocusTraversable(true);
         stage.setScene(new Scene(root,640,480));
         
         stage.show();

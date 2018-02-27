@@ -11,9 +11,12 @@ import com.tpv.modelo.Checkout;
 import com.tpv.modelo.Usuario;
 import com.tpv.principal.DataModelTicket;
 import com.tpv.service.UsuarioService;
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.animation.FadeTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -35,7 +38,7 @@ import org.datafx.controller.flow.action.ActionTrigger;
  */
 
 //@FXMLController(value="Login.fxml", title = "Ingreso al Sistema")
-public class LoginController {
+public class LoginController implements Initializable{
     
     private TabPanePrincipalController tabController;
     
@@ -56,7 +59,7 @@ public class LoginController {
     private TextField userName;
     
     @FXML
-    private TextField password;
+    public TextField password;
     
     @FXML
     private ImageView imageViewLogoRight;
@@ -75,7 +78,12 @@ public class LoginController {
     private DataModelTicket modelTicket;
     
     
-    
+    @FXML
+    public  void initialize(URL url, ResourceBundle rb) {
+            password.setOnKeyPressed(keyEvent->{
+                log.debug("INGRESEANDO POR PRESIONAR TECLA ENTER desde initialize method");
+            });
+    }    
     
     @PostConstruct
     public void init(){
